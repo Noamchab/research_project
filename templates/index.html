@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comedy vs Tragedy — Bias in Movie Criticism</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../statics/css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Is there a disdain in Comedies?</h1>
+      <img
+        src="../statics/images/Louis.png"
+        alt="Louis de Funès smiling portrait background"
+        class="header-bg"
+      />
+    </header>
+
+    <nav>
+      <a href="index.html" class="nav-logo">
+        <img
+          src="../statics/images/livre_fixed.png"
+          data-anim="../statics/images/livre_anim.gif"
+          alt="Book opening animation"
+          class="logo-gif"
+        />
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">Comedy in critics</a>
+          <ul class="submenu">
+            <li><a href="critics_data.html">Label of the film</a></li>
+            <li><a href="llm_data.html">LLM classification</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Comedy in awards</a>
+          <ul class="submenu">
+            <li><a href="cesars.html">Césars</a></li>
+            <li><a href="cannes.html">Festival de Cannes</a></li>
+          </ul>
+        </li>
+        <li><a href="go_beyond.html">To Go Beyond</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>About this project</h2>
+          <p>
+            This research project investigates whether comedy is systematically
+            devalued in cinema and where that devaluation occurs.
+          </p>
+          <br />
+          <p>
+            Using large-scale data (box office, audience and critic ratings),
+            genre measures, and LLM-based classifications, the study shows that
+            comedy tends to generate divergent forms of interest among critics
+            and the general public, and that it is not chiefly penalized in
+            award outcomes but filtered out upstream, through institutional
+            selection at Cannes and the César Awards.
+          </p>
+        </div>
+        <div class="why_img">
+          <img
+            src="../statics/images/vadrouille.jpg"
+            alt="Symbol of laughter"
+          />
+        </div>
+      </section>
+
+      <!-- FULL PDF SECTION -->
+      <section class="pdf_section" aria-label="Full PDF link">
+        <div class="pdf_section__inner">
+          <p class="pdf_section__label">Want the complete article?</p>
+
+          <a
+            href="../statics/Reports/Rendu_final.pdf"
+            class="pdf_section__btn"
+            target="_blank"
+            rel="noopener"
+          >
+            See the full PDF
+          </a>
+        </div>
+      </section>
+
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Why Comedy?</h2>
+          <p>
+            Since Antiquity, theater has been divided into two main genres:
+            comedy and tragedy. Philosophers and critics traditionally
+            considered tragedy the "noble" genre, while comedy was viewed as
+            lighter, sometimes inferior entertainment.
+          </p>
+          <br />
+          <p>
+            This project explores this cultural hierarchy not through ancient
+            theater, but through modern cinema, analyzing whether comedy is
+            still underestimated compared to tragedy.
+          </p>
+        </div>
+        <div class="why_img">
+          <img src="../statics/images/rire_bleu.png" alt="Symbol of laughter" />
+        </div>
+      </section>
+
+      <div class="method_bloc">
+        <section class="method">
+          <div class="method_text">
+            <h2>Here are the classical definitions of comedy and tragedy:</h2>
+          </div>
+
+          <div class="method_img">
+            <img src="../statics/images/comedy.png" alt="Comedy illustration" />
+          </div>
+        </section>
+
+        <section class="comparaison">
+          <article>
+            <h3>Comedy</h3>
+            <figure>
+              <img
+                src="../statics/images/chaplin.png"
+                alt="Charlie Chaplin representing comedy"
+              />
+            </figure>
+            <p>
+              Comedy in the Neoclassical period typically featured ordinary or
+              middle-class characters. It aimed to entertain and to correct
+              manners through laughter. The plot often relied on
+              misunderstandings, social satire, and ridicule of human
+              weaknesses, with a happy ending.
+            </p>
+          </article>
+          <article>
+            <h3>Tragedy</h3>
+            <figure>
+              <img
+                src="../statics/images/tragédie.png"
+                alt="Tragic mask representing destiny"
+              />
+            </figure>
+            <p>
+              Tragedy was considered the highest genre, focusing on noble
+              characters. It depicted inescapable conflicts, destructive
+              passions, and fate leading to inevitable downfall. The aim was to
+              inspire awe and provoke catharsis in the audience.
+            </p>
+          </article>
+        </section>
+      </div>
+
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Problematic</h2>
+          <p>
+            <strong
+              >To what extent is comedy symbolically devalued in contemporary
+              cinema, and through which mechanisms does this devaluation
+              operate, including popular reception, critical evaluation, and
+              institutional recognition?</strong
+            >
+          </p>
+        </div>
+        <div class="why_img">
+          <img src="../statics/images/lacheau.png" alt="Symbol of laughter" />
+        </div>
+      </section>
+
+      <!-- PROJECT DIRECTORY / TABLE OF CONTENTS -->
+      <section class="project_toc" aria-label="Project table of contents">
+        <h2>Explore the project</h2>
+        <p class="project_toc__subtitle">
+          Jump directly to each analysis page — methodology, data, and results.
+        </p>
+
+        <div class="project_toc__grid">
+          <a class="project_card" href="critics_data.html">
+            <h3>Comedy in Critics — Labels</h3>
+            <p>Compare comedy reviews vs box office by genre.</p>
+            <span class="project_card__cta">Open page</span>
+          </a>
+
+          <a class="project_card" href="llm_data.html">
+            <h3>Comedy in Critics — LLM classification</h3>
+            <p>Comparing comedy reviews vs box office via LLM score.</p>
+            <span class="project_card__cta">Open page</span>
+          </a>
+
+          <a class="project_card" href="cesars.html">
+            <h3>Comedy in Awards — Césars</h3>
+            <p>Quantifying César Awards comedy under-representation</p>
+            <span class="project_card__cta">Open page</span>
+          </a>
+
+          <a class="project_card" href="cannes.html">
+            <h3>Comedy in Awards — Cannes</h3>
+            <p>Quantifying Cannes comedy under-representation</p>
+            <span class="project_card__cta">Open page</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="about_me">
+        <figure>
+          <img src="../statics/images/Noam_photo.jpg" alt="Portrait of Noam" />
+        </figure>
+        <h2>About Me</h2>
+        <p>
+          I am a student in Data Science at PSL and Louis-le-Grand, passionate
+          about culture. I specialize in comedy in all its aspects, studying
+          what determines the success of comic works in theater and cinema.
+        </p>
+      </section>
+    </main>
+
+    <footer>© 2025 – All rights reserved to Noam</footer>
+
+    <script src="../statics/js/script.js"></script>
+  </body>
+</html>

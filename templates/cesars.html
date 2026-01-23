@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comedy vs Tragedy — Data Analysis</title>
+
+    <!-- CSS du site -->
+    <link rel="stylesheet" href="../statics/css/style.css" />
+
+    <!-- D3 pour les graphiques -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+
+  <body class="data-page">
+    <header class="simple-header">
+      <h1>Comedy in Césars Awards</h1>
+    </header>
+
+    <section class="page_hero">
+      <img
+        src="../statics/images/cesar_image.jpg"
+        alt="Illustration of comedy cinema"
+      />
+    </section>
+    <nav>
+      <a href="index.html" class="nav-logo">
+        <img
+          src="../statics/images/livre_fixed.png"
+          data-anim="../statics/images/livre_anim.gif"
+          alt="Book opening animation"
+          class="logo-gif"
+        />
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">Comedy in Critics</a>
+          <ul class="submenu">
+            <li><a href="critics_data.html">Label of the film</a></li>
+            <li><a href="llm_data.html">LLM classification</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Comedy in Awards</a>
+          <ul class="submenu">
+            <li><a href="cesars.html">Césars</a></li>
+            <li><a href="cannes.html">Festival de Cannes</a></li>
+          </ul>
+        </li>
+        <li><a href="go_beyond.html">To Go Beyond</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- ===================== -->
+      <!-- CONTENU EXISTANT SITE -->
+      <!-- ===================== -->
+
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Goal of the study</h2>
+          <p class="key_insight">
+            Identify a significant discrepancy between the volume of comedy
+            nominations and their success rate in the Best Director and Best
+            Film categories at the César Awards.
+          </p>
+        </div>
+      </section>
+
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Data Collection</h2>
+          <p>
+            We constructed two datasets based on films nominated for the César
+            Awards by scrapping Wikipedia on October 3, 2025. The first dataset
+            includes all films nominated for the Best Picture category from 1976
+            to 2025 (N = 271), along with additional information such as the
+            film’s director, the synopsis, the nomination status (nominated or
+            winner), the genre tags and the Wikipedia pages of both the film and
+            its director. The second dataset contains the same information for
+            the Best Director category (N = 265), covering the same time period
+            (1976– 2025). Finally, we concatenated the two datasets so that each
+            film appearing in either category (or both) was included.
+          </p>
+        </div>
+      </section>
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Comedy Classification</h2>
+          <p>
+            For this analysis, we chose to classify comedy based on the
+            wikipedia genre tags.
+          </p>
+
+          <br />
+
+          <p>
+            The level comedy is <strong>0 (No Comedy)</strong> if the Comedy tag
+            is absent from the list of genres.
+          </p>
+
+          <p>
+            The level comedy is <strong>1 (Mixed Comedy)</strong> if the Comedy
+            tag is present alongside at least one of the following genres:
+            Drama, Action, Romance, or Horror.
+          </p>
+
+          <p>
+            The level comedy is <strong>2 (Pure Comedy)</strong> if the Comedy
+            tag is present, and none of the four genres above appear.
+          </p>
+        </div>
+        <div class="label_img">
+          <img
+            src="../statics/images/graph_comedy_cesars.jpg"
+            alt="Data visualization example"
+          />
+        </div>
+      </section>
+
+      <section class="main_intro">
+        <div class="why_text">
+          <p>
+            If you want to have more information on the method and the results
+            of this study, here is the complete report:
+            <a
+              href="../statics/Reports/Cesars_Project.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Report Comedy in Césars
+            </a>
+          </p>
+
+          <br />
+
+          <p></p>
+        </div>
+      </section>
+
+      <section class="main_intro data-section" id="charts">
+        <h2>Visualisations of the variables</h2>
+        <br />
+        <div id="description"></div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart1"></div>
+          <div class="chart-info" id="info1">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart2"></div>
+          <div class="chart-info" id="info2">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart4"></div>
+          <div class="chart-info" id="info4">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+      </section>
+
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Results</h2>
+          <p>
+            The regression shows that
+            <strong
+              >the level of comedy in a film increases significantly with its
+              log box-office revenue</strong
+            >
+            (b = 0.239$, p < 0.001, R² = 0.013). Conversely,
+            <strong
+              >the level of comedy decreases significantly with audience
+              ratings</strong
+            >
+            (b = -2.440, p < 0.001, R² = 0.007)
+            <strong>and press ratings</strong> (b = -4.690, p < 0.001, R² =
+            0.014). See the charts below for more information.
+          </p>
+
+          <br />
+
+          <p>
+            Thus, the analysis of Rotten Tomatoes reviews and the TMDB database
+            shows that a film’s level of comedy has a positive and significant
+            effect on its box-office success, but a negative effect on critics’
+            ratings. However, contrary to my initial hypothesis, this negative
+            influence is also significant for audience ratings, suggesting
+            <strong
+              >a difference in audience profiles between box-office viewers and
+              the audience reflected in Rotten Tomatoes reviews.</strong
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="main_intro data-section" id="charts">
+        <h2>Regressions between the level of comedy and the other variables</h2>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart5"></div>
+          <div class="chart-info" id="info5">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart6"></div>
+          <div class="chart-info" id="info6">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2025 – All rights reserved to Noam</footer>
+
+    <!-- JS du site -->
+    <script src="../statics/js/script.js"></script>
+
+    <!-- JS des graphiques -->
+    <script src="../statics/js/cesars.js"></script>
+  </body>
+</html>

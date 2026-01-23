@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comedy vs Tragedy — Data Analysis</title>
+
+    <!-- CSS du site -->
+    <link rel="stylesheet" href="../statics/css/style.css" />
+
+    <!-- D3 pour les graphiques -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+
+  <body class="data-page">
+    <header class="simple-header">
+      <h1>Comedy in Critics with genre tags</h1>
+    </header>
+
+    <section class="page_hero">
+      <img
+        src="../statics/images/carioca.avif"
+        alt="Illustration of comedy cinema"
+      />
+    </section>
+
+    <nav>
+      <a href="index.html" class="nav-logo">
+        <img
+          src="../statics/images/livre_fixed.png"
+          data-anim="../statics/images/livre_anim.gif"
+          alt="Book opening animation"
+          class="logo-gif"
+        />
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">Comedy in Critics</a>
+          <ul class="submenu">
+            <li><a href="critics_data.html">Label of the film</a></li>
+            <li><a href="llm_data.html">LLM classification</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Comedy in Awards</a>
+          <ul class="submenu">
+            <li><a href="cesars.html">Césars</a></li>
+            <li><a href="cannes.html">Festival de Cannes</a></li>
+          </ul>
+        </li>
+        <li><a href="go_beyond.html">To Go Beyond</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- ===================== -->
+      <!-- CONTENU EXISTANT SITE -->
+      <!-- ===================== -->
+
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Goal of the study</h2>
+
+          <p class="key_insight">
+            Detect the discrepancy between the box-office performance of the
+            comedy genre and its qualitative reception among critics and
+            audiences.
+          </p>
+        </div>
+      </section>
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Data Collection</h2>
+          <p>
+            We used two publicly available datasets from Kaggle for our
+            analysis. The first dataset (<a
+              href="https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies?resource=download&select=TMDB_movie_dataset_v11.csv"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              available here</a
+            >) includes N = 1,306,063 films from the TMDB database , containing
+            classical information such as movie titles, release dates, and
+            genres. The second dataset (<a
+              href="https://www.kaggle.com/datasets/andrezaza/clapper-massive-rotten-tomatoes-movies-and-reviews"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              available here</a
+            >) contains N = 69,263 films with data on critical and audience
+            ratings from Rotten Tomatoes, including an aggregated score of press
+            for each film. We merged the two datasets and retained only the
+            films and the informations we needed present in both sources. The
+            resulting dataset contains <strong>8,775 films</strong>, spanning
+            from 1913 to 2025.
+          </p>
+        </div>
+      </section>
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Comedy Classification</h2>
+          <p>
+            For this analysis, we chose to classify comedy based on the TMDB
+            genre tags.
+          </p>
+
+          <br />
+
+          <p>
+            The level comedy is <strong>0 (No Comedy)</strong> if the Comedy tag
+            is absent from the list of genres.
+          </p>
+
+          <p>
+            The level comedy is <strong>1 (Mixed Comedy)</strong> if the Comedy
+            tag is present alongside at least one of the following genres:
+            Drama, Action, Romance, or Horror.
+          </p>
+
+          <p>
+            The level comedy is <strong>2 (Pure Comedy)</strong> if the Comedy
+            tag is present, and none of the four genres above appear.
+          </p>
+        </div>
+        <div class="label_img">
+          <img
+            src="../statics/images/Level of comedy.png"
+            alt="Data visualization example"
+          />
+        </div>
+      </section>
+
+      <section class="main_intro">
+        <div class="why_text">
+          <p>
+            If you want to have more information on the method and the results
+            of this study, here is the complete report:
+            <a
+              href="../statics/Reports/Reviews_Project.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Report Label Classification
+            </a>
+          </p>
+
+          <br />
+
+          <p></p>
+        </div>
+      </section>
+
+      <section class="main_intro data-section" id="charts">
+        <h2>Visualisations of the variables</h2>
+        <br />
+        <div id="description"></div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart1"></div>
+          <div class="chart-info" id="info1">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart2"></div>
+          <div class="chart-info" id="info2">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart3"></div>
+          <div class="chart-info" id="info3">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart4"></div>
+          <div class="chart-info" id="info4">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+      </section>
+
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Results</h2>
+          <p>
+            The regression shows that
+            <strong
+              >the level of comedy in a film increases significantly with its
+              log box-office revenue</strong
+            >
+            (b = 0.239, p < 0.001, R² = 0.013). Conversely,
+            <strong
+              >the level of comedy decreases significantly with audience
+              ratings</strong
+            >
+            (b = -2.440, p < 0.001, R² = 0.007)
+            <strong>and press ratings</strong> (b = -4.690, p < 0.001, R² =
+            0.014). See the charts below for more information.
+          </p>
+
+          <br />
+
+          <p>
+            Thus, the analysis of Rotten Tomatoes reviews and the TMDB database
+            shows that a film’s level of comedy has a positive and significant
+            effect on its box-office success, but a negative effect on critics’
+            ratings. However, contrary to my initial hypothesis, this negative
+            influence is also significant for audience ratings, suggesting
+            <strong
+              >a difference in audience profiles between box-office viewers and
+              the audience reflected in Rotten Tomatoes reviews.</strong
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="main_intro data-section" id="charts">
+        <h2>Regressions between the level of comedy and the other variables</h2>
+        <p>
+          Each point correspond to a unique film, and its position depends on
+          its level of comedy and 1. its revenue, 2. its audience rating, 3. its
+          press rating.
+        </p>
+        <div class="chart-block">
+          <div class="chart-area" id="chart5"></div>
+          <div class="chart-info" id="info5">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart6"></div>
+          <div class="chart-info" id="info6">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart7"></div>
+          <div class="chart-info" id="info7">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2025 – All rights reserved to Noam</footer>
+
+    <!-- JS du site -->
+    <script src="../statics/js/script.js"></script>
+
+    <!-- JS des graphiques -->
+    <script src="../statics/js/graph.js"></script>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comedy vs Tragedy — Data Analysis</title>
+
+    <!-- CSS du site -->
+    <link rel="stylesheet" href="../statics/css/style.css" />
+
+    <!-- D3 pour les graphiques -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+
+  <body class="data-page">
+    <header class="simple-header">
+      <h1>Comedy in Festival de Cannes</h1>
+    </header>
+
+    <section class="page_hero">
+      <img
+        src="../statics/images/cannes.jpg"
+        alt="Illustration of comedy cinema"
+      />
+    </section>
+    <nav>
+      <a href="index.html" class="nav-logo">
+        <img
+          src="../statics/images/livre_fixed.png"
+          data-anim="../statics/images/livre_anim.gif"
+          alt="Book opening animation"
+          class="logo-gif"
+        />
+      </a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">Comedy in Critics</a>
+          <ul class="submenu">
+            <li><a href="critics_data.html">Label of the film</a></li>
+            <li><a href="llm_data.html">LLM classification</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Comedy in Awards</a>
+          <ul class="submenu">
+            <li><a href="cesars.html">Césars</a></li>
+            <li><a href="cannes.html">Festival de Cannes</a></li>
+          </ul>
+        </li>
+        <li><a href="go_beyond.html">To Go Beyond</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- ===================== -->
+      <!-- CONTENU EXISTANT SITE -->
+      <!-- ===================== -->
+
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Goal of the study</h2>
+          <p class="key_insight">
+            Detect a significant discrepancy between the prevalence of comedies
+            in the official competition and their success rate across the three
+            primary award categories.
+          </p>
+        </div>
+      </section>
+
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Data Collection</h2>
+          <p>
+            We built a database of all films selected for the Official
+            Competition at Cannes by scraping the relevant Wikipedia pages. We
+            then enriched this dataset with additional information about each
+            film, including genre tags, the director’s name, the year of
+            selection, and whether the film was merely selected for the Official
+            Competition or went on to win the Palme d’Or, the Grand Prix, or the
+            Jury Prize. In total, we collected data on N = 1,802 films spanning
+            the period from 1946 to 2025.
+          </p>
+        </div>
+      </section>
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Comedy Classification</h2>
+          <p>
+            For this analysis, we chose to classify comedy based on the
+            wikipedia genre tags.
+          </p>
+
+          <br />
+
+          <p>
+            The level comedy is <strong>0 (No Comedy)</strong> if the Comedy tag
+            is absent from the list of genres.
+          </p>
+
+          <p>
+            The level comedy is <strong>1 (Mixed Comedy)</strong> if the Comedy
+            tag is present alongside at least one of the following genres:
+            Drama, Action, Romance, or Horror.
+          </p>
+
+          <p>
+            The level comedy is <strong>2 (Pure Comedy)</strong> if the Comedy
+            tag is present, and none of the four genres above appear.
+          </p>
+        </div>
+        <div class="label_img">
+          <img
+            src="../statics/images/Level_comedy_cannes.jpg"
+            alt="Data visualization example"
+          />
+        </div>
+      </section>
+
+      <section class="main_intro">
+        <div class="why_text">
+          <p>
+            If you want to have more information on the method and the results
+            of this study, here is the complete report:
+            <a
+              href="../statics/Reports/Cesars_Project.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Report Cannes Festival
+            </a>
+          </p>
+
+          <br />
+
+          <p></p>
+        </div>
+      </section>
+
+      <section class="main_intro data-section" id="charts">
+        <h2>Visualisations of the variables</h2>
+        <br />
+        <div id="description"></div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart1"></div>
+          <div class="chart-info" id="info1">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart2"></div>
+          <div class="chart-info" id="info2">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart3"></div>
+          <div class="chart-info" id="info3">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart4"></div>
+          <div class="chart-info" id="info4">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+      </section>
+
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Results</h2>
+          <p>
+            The mean comedy level of films among
+            <strong
+              >Palme d'Or winners is slightly lower than among nominated
+              films</strong
+            >
+            (μ<sub>w</sub> = 0.218, μ<sub>n</sub> = 0.242), but this difference
+            is <strong>not statistically significant</strong>
+            (t = 0.523, p = 0.602). Similarly, the mean comedy level of films
+            among
+            <strong
+              >Grand Prix winners is also slightly lower than among nominated
+              films</strong
+            >
+            (μ<sub>w</sub> = 0.227, μ<sub>n</sub> = 0.242), and this difference
+            is <strong>not statistically significant either</strong>
+            (t = 0.233, p = 0.816). Finally, the mean comedy level of films
+            among
+            <strong
+              >Jury Prize winners is slightly higher than among nominated
+              films</strong
+            >
+            (μ<sub>w</sub> = 0.259, μ<sub>n</sub> = 0.249), but this difference
+            is <strong>not statistically significant</strong> (t = -0.175, p =
+            0.862).
+          </p>
+          <br />
+          <p>
+            Overall,
+            <strong
+              >none of these comparisons reveal a meaningful difference in
+              comedy level</strong
+            >. However, it is worth noting that
+            <strong
+              >a large number of films in the Official Selection are classified
+              as non-comedy</strong
+            >, which suggests that comedy remains relatively uncommon in the
+            competition lineup.
+          </p>
+
+          <br />
+        </div>
+      </section>
+
+      <section class="main_intro data-section" id="charts">
+        <h2>Regressions between the level of comedy and the other variables</h2>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart5"></div>
+          <div class="chart-info" id="info5">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart6"></div>
+          <div class="chart-info" id="info6">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart7"></div>
+          <div class="chart-info" id="info7">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2025 – All rights reserved to Noam</footer>
+
+    <!-- JS du site -->
+    <script src="../statics/js/script.js"></script>
+
+    <!-- JS des graphiques -->
+    <script src="../statics/js/cannes.js"></script>
+  </body>
+</html>

@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comedy vs Tragedy — LLM Classification</title>
+
+    <!-- CSS du site -->
+    <link rel="stylesheet" href="../statics/css/style.css" />
+
+    <!-- D3 pour les graphiques -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+
+  <body class="data-page">
+    <header class="simple-header">
+      <h1>Comedy in Critics with IA</h1>
+    </header>
+
+    <section class="page_hero">
+      <img
+        src="../statics/images/very_bad_trip.avif"
+        alt="Illustration of comedy cinema"
+      />
+    </section>
+
+    <nav>
+      <a href="index.html" class="nav-logo">
+        <img
+          src="../statics/images/livre_fixed.png"
+          data-anim="../statics/images/livre_anim.gif"
+          alt="Book opening animation"
+          class="logo-gif"
+        />
+      </a>
+
+      <ul>
+        <li><a href="index.html">Home</a></li>
+
+        <li>
+          <a href="#">Comedy in Critics</a>
+          <ul class="submenu">
+            <li><a href="critics_data.html">Label of the film</a></li>
+            <li><a href="llm_data.html">LLM classification</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">Comedy in Awards</a>
+          <ul class="submenu">
+            <li><a href="cesars.html">Césars</a></li>
+            <li><a href="cannes.html">Festival de Cannes</a></li>
+          </ul>
+        </li>
+
+        <li><a href="go_beyond.html">To Go Beyond</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Goal of the study</h2>
+          <p class="key_insight">
+            Identify the discrepancy between box-office performance and
+            qualitative reception (critics/audiences) based on LLM-assigned
+            comedy intensity scores.
+          </p>
+        </div>
+      </section>
+
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>LLM Data Collection</h2>
+          <p>
+            This study differs from the previous one only in how the Comedy
+            variable is constructed. Because LLM-based annotation is
+            computationally expensive, we limited the analysis to 500 films,
+            selecting the most popular titles according to TMDB’s dynamic
+            popularity score. This choice increases the likelihood that the
+            model has prior knowledge of the films.
+          </p>
+
+          <br />
+
+          <p>
+            We used the
+            <a
+              href="https://huggingface.co/Qwen/Qwen2.5-7B"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Qwen2.5-7B model </a
+            >, a large language model (LLM), meaning an
+            <strong>artificial intelligence system</strong> trained on vast
+            amounts of text to analyze and generate language, chosen as a
+            compromise between performance and computational feasibility.
+          </p>
+
+          <br />
+
+          <p>
+            Comedy scores, justifications, and self-reported knowledge levels
+            were generated for all films. After removing uncertain or
+            low-confidence cases through post-processing filters, the final
+            dataset consists of <strong>N = 440 films</strong>.
+          </p>
+        </div>
+      </section>
+
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Comedy Classification</h2>
+          <p>
+            For this analysis, we chose to classify comedy based on the prior
+            knowledge of an LLM.
+          </p>
+
+          <br />
+
+          <p>
+            The LLM assigned each film a <strong>Comedy Score (1–10)</strong>
+            based on the movie’s intent to provoke laughter, distinguishing pure
+            comedy (10) from genre hybrids (8–9), balanced dramedy/action (5–7),
+            and mostly serious films with only comic relief (1–4). To avoid
+            overestimation and guessing, it returned 0 when it lacked sufficient
+            knowledge, along with a self-reported knowledge level and a brief
+            justification.
+          </p>
+
+          <br />
+
+          <p>
+            Here is the exact prompt:
+            <a
+              href="../statics/Reports/prompt.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Comedy level prompt
+            </a>
+          </p>
+        </div>
+
+        <div class="label_img">
+          <img
+            src="../statics/images/LLM_comedy.png"
+            alt="Example of LLM comedy scoring outputs"
+          />
+        </div>
+      </section>
+
+      <section class="main_intro">
+        <div class="why_text">
+          <p>
+            If you want more information on the method and the results, here is
+            the complete report:
+            <a
+              href="../statics/Reports/LLM_classification.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Report — LLM Classification
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <section class="main_intro data-section" id="charts">
+        <h2>Visualisations of the variables</h2>
+        <br />
+        <div id="description"></div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart1"></div>
+          <div class="chart-info" id="info1">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart2"></div>
+          <div class="chart-info" id="info2">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart3"></div>
+          <div class="chart-info" id="info3">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart4"></div>
+          <div class="chart-info" id="info4">
+            Hover over a bar to view information about an example of a film
+            represented in that bar.
+          </div>
+        </div>
+      </section>
+
+      <section class="main_intro">
+        <div class="why_text">
+          <h2>Results</h2>
+          <p>
+            The regression shows that the level of comedy in a film increases
+            slightly with its log box-office revenue (b = 0.004, R² = 0.000),
+            but the result is not significant (p = 0.698). The level of comedy
+            also decreases with its press rating (b = -0.378, R² = 0.002),
+            although this effect is not significant (p = 0.359). In contrast,
+            <strong
+              >the level of comedy decreases significantly with audience
+              rating</strong
+            >
+            (b = -0.560, p &lt; 0.05, R² = 0.009).
+          </p>
+        </div>
+      </section>
+
+      <section class="main_intro data-section">
+        <h2>Regressions between the level of comedy and the other variables</h2>
+        <p>
+          Each point corresponds to a unique film, and its position depends on
+          its level of comedy and (1) revenue, (2) audience rating, (3) press
+          rating.
+        </p>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart5"></div>
+          <div class="chart-info" id="info5">
+            Hover over a point to view information about an example of a film.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart6"></div>
+          <div class="chart-info" id="info6">
+            Hover over a point to view information about an example of a film.
+          </div>
+        </div>
+
+        <div class="chart-block">
+          <div class="chart-area" id="chart7"></div>
+          <div class="chart-info" id="info7">
+            Hover over a point to view information about an example of a film.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2025 – All rights reserved to Noam</footer>
+
+    <!-- JS du site -->
+    <script src="../statics/js/script.js"></script>
+
+    <!-- JS des graphiques -->
+    <script src="../statics/js/llm.js"></script>
+  </body>
+</html>
