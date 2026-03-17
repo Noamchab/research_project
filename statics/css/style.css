@@ -190,7 +190,7 @@ nav a:hover {
   }
 }
 
-/* === HERO SOUS LE TITRE (pages secondaires) === */
+
 .page_header {
   position: relative;
   z-index: 5;
@@ -198,7 +198,7 @@ nav a:hover {
   padding: 20px 0 8px; /* réduit l’espace sous le titre */
 }
 
-/* Ton style de titre (fond semi-transparent) */
+
 .page_header h1 {
   margin: 0;
   padding: 12px 24px;
@@ -207,7 +207,7 @@ nav a:hover {
   border-radius: 12px;
 }
 
-/* IMPORTANT : neutralise les styles globaux de section */
+
 section.page_hero {
   margin: -45px 0 0 0 !important; /* remonte l’image sous le titre */
   padding: 0 !important; /* supprime le padding global */
@@ -235,7 +235,7 @@ section.page_hero img {
   padding: 20px 0 8px;
 }
 
-/* SECTION IMAGE GRAND FORMAT */
+
 .page_hero {
   position: relative;
   margin-top: -80px; /* l’image remonte sous le titre */
@@ -267,7 +267,7 @@ section.page_hero img {
   border-radius: 12px;
 }
 
-/* ---- Logo animé ---- */
+/* ---- animated logo ---- */
 .nav-logo {
   position: absolute;
   top: 50%;
@@ -287,7 +287,7 @@ section.page_hero img {
   pointer-events: none;
 }
 
-/* ---- Sous-menu ---- */
+/* ---- Submenu ---- */
 .submenu {
   position: absolute;
   top: 100%;
@@ -353,7 +353,7 @@ section {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* --- Animation d'apparition au scroll --- */
+
 section,
 article,
 figure {
@@ -421,7 +421,6 @@ figure {
   padding: 50px;
 }
 
-/* ✅ Pas de deuxième fond à l’intérieur */
 .method,
 .comparaison {
   background: none !important;
@@ -431,7 +430,7 @@ figure {
   margin: 0;
 }
 
-/* ---- Method ---- */
+
 .method {
   display: flex;
   align-items: center;
@@ -465,7 +464,7 @@ figure {
   margin-bottom: 15px;
 }
 
-/* ---- Comparaison ---- */
+
 .comparaison {
   display: flex;
   flex-wrap: wrap;
@@ -573,8 +572,7 @@ footer {
   }
 }
 
-/* === STYLE SPÉCIFIQUE À LA PAGE "DATA" === */
-/* === Header simple (sans image) === */
+
 body.data-page header.simple-header {
   color: #1e1b19;
   padding: 80px 20px; /* espace autour du texte */
@@ -591,9 +589,6 @@ body.data-page header.simple-header h1 {
   text-shadow: none; /* pas d’ombre inutile */
 }
 
-/* ========================= */
-/* CSS POUR LE GRAPHE + INFO */
-/* ========================= */
 
 #container {
   display: flex;
@@ -619,10 +614,6 @@ body.data-page header.simple-header h1 {
   box-sizing: border-box;
 }
 
-/* ========================= */
-/* CONTENU INTERNE DE #info  */
-/* ========================= */
-
 .info-content {
   display: flex;
   gap: 20px;
@@ -641,9 +632,6 @@ body.data-page header.simple-header h1 {
   flex: 2; /* 2/3 */
 }
 
-/* =============================== */
-/* CORRECTION LAYOUT PAGE DATA     */
-/* =============================== */
 
 body.data-page .data-section {
   display: block; /* casse le flex éditorial */
@@ -660,9 +648,6 @@ body.data-page .data-section {
   align-items: flex-start;
 }
 
-/* ================================
-   PROJECT TOC (cards directory)
-   ================================ */
 
 .project_toc {
   width: min(1100px, 100%);
@@ -863,9 +848,6 @@ header.simple-header {
   }
 }
 
-/* ================================
-   ACTUALITÉ COMÉDIE (news section)
-   ================================ */
 
 .news_section {
   margin: 60px auto;
@@ -917,7 +899,6 @@ header.simple-header {
   text-decoration: underline;
 }
 
-/* Responsive YouTube embed (16:9) */
 .video_embed {
   position: relative;
   width: 100%;
